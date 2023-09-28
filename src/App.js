@@ -1,4 +1,5 @@
-import Image from './img/image.png'
+import React, { useState } from 'react';
+import Image from './img/image.png';
 
 import { 
   MainContainer, 
@@ -16,6 +17,15 @@ import {
   from './styles.js'
 
 function App() {
+  /*const tasks = [{id: Math.random(), text: "Tarefa 1"}, {id: Math.random(), text: "Tarefa 2"}]*/
+  const[tasks, setTasks] = useState([{id: Math.random(), text: "Tarefa inicial"}, {id: Math.random(), text: "Tarefa nova"}]);
+
+  function insertNewTask(event){
+    if(event.key === "Enter"){ 
+      setTasks([{id: Math.random(), text: "Tudo alterado"}])
+    }
+  }
+
   return (
     <MainContainer>
       <Container>
@@ -29,14 +39,20 @@ function App() {
         <RightContainer>
           <Titulo>Minhas Tarefas</Titulo>
           <Subtitulo>Tarefas do dia...</Subtitulo>
-          <Tarefa>
+
+          {tasks.map((task)=> (
+            <Tarefa key={task.id}>
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49999 9.31826L12.9548 14.7731L14.7731 12.9548L9.31826 7.49998L14.7731 2.04516L12.9548 0.226886L7.49999 5.68171L2.04516 0.226887L0.226888 2.04516L5.68171 7.49999L0.226888 12.9548L2.04516 14.7731L7.49999 9.31826ZM7.49999 9.31826L9.31826 7.49998L7.49999 5.68171L5.68171 7.49999L7.49999 9.31826Z" fill="#35383E" fill-opacity="0.25"/>
               <path d="M7.49999 9.31826L9.31826 7.49998L7.49999 5.68171L5.68171 7.49999L7.49999 9.31826Z" fill="#35383E" fill-opacity="0 25"/>
             </svg>
-            <p>Tarefa 1</p>
+            <p>{task.text}</p>
           </Tarefa>
-          <Input type="text" placeholder="Digite sua próxima tarefa aqui..."/>
+          ))}
+
+          <Input type="text" 
+                 placeholder="Digite sua próxima tarefa aqui..."
+                 onKeyDown={insertNewTask} />
         </RightContainer>
       </Container>
     </MainContainer>

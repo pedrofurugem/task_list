@@ -107,7 +107,7 @@ export const Input = styled.input`
    align-self: stretch;
    border: none;
    border-bottom: 2px solid rgba(53, 56, 62, 0.05);
-   outline: none;
+   outline: none; /*sem a borda*/
    color: rgba(53, 56, 62, 0.50);
    font-size: 22px;
    font-weight: 800;
