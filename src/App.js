@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from './img/image.png';
 
 import { 
@@ -17,12 +17,14 @@ import {
   from './styles.js'
 
 function App() {
-  /*const tasks = [{id: Math.random(), text: "Tarefa 1"}, {id: Math.random(), text: "Tarefa 2"}]*/
-  const[tasks, setTasks] = useState([{id: Math.random(), text: "Tarefa inicial"}, {id: Math.random(), text: "Tarefa nova"}]);
+  const[tasks, setTasks] = useState([{id: Math.random(), text: "Tarefa 1"}, {id: Math.random(), text: "Tarefa 2"}]);
+
+  const taskText = useRef("");
 
   function insertNewTask(event){
-    if(event.key === "Enter"){ 
-      setTasks([{id: Math.random(), text: "Tudo alterado"}])
+    if(event.key === "Enter"){
+      setTasks([...tasks, {id: Math.random(), text: taskText.current.value }])
+      taskText.current.value = ""
     }
   }
 
@@ -52,7 +54,9 @@ function App() {
 
           <Input type="text" 
                  placeholder="Digite sua próxima tarefa aqui..."
-                 onKeyDown={insertNewTask} />
+                 onKeyDown={insertNewTask} 
+                 ref={taskText}
+                 />
         </RightContainer>
       </Container>
     </MainContainer>
