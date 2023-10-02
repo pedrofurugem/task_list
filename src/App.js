@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Image from './img/image.png';
+import axios from 'axios';
 
 import { 
   MainContainer, 
@@ -21,16 +22,17 @@ function App() {
 
   const taskText = useRef("");
 
-  function insertNewTask(event){
+  async function insertNewTask(event){
     if(event.key === "Enter"){
-      setTasks([...tasks, {id: Math.random(), text: taskText.current.value }])
+      const { data: newTaskInfo } = await axios.put('https://plataforma.universodev.com.br/api/todolist/', { text: taskText.current.value })
+      setTasks([...tasks, {id: newTaskInfo.id, text: newTaskInfo.text }])
       taskText.current.value = ""
     }
   }
 
-  function removeTask(id){
+  async function removeTask(id){
+    const data = await axios.delete(`https://plataforma.universodev.com.br/api/todolist/${id}`)
     setTasks(tasks.filter((task) => task.id !== id))
-    console.log("id da tarefa removida: " + id)
   }
 
   return (
