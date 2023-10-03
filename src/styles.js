@@ -66,7 +66,7 @@ export const Subtitulo = styled.p`
    font-size: 20px;
    font-weight: 700;
 `
-
+/*
 export const Tarefa = styled.div`
    display: flex;
    width: 410px;
@@ -94,7 +94,7 @@ export const Tarefa = styled.div`
       font-size: 20px;
       font-weight: 700;
    }
-`
+`*/
 
 export const Input = styled.input`
    width: 410px;
