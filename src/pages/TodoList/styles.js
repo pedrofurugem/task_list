@@ -24,13 +24,6 @@ export const LogoImage = styled.img`
    margin-right: 8px
 `
 
-export const Titulo = styled.h1`
-   color: black;
-   font-size: 40px;
-   font-weight: 800;
-   word-wrap: break-word
-`
-
 export const SubHeadLine = styled.p`
    font-size: 24px;
    font-weight: 400;
@@ -40,10 +33,7 @@ export const SubHeadLine = styled.p`
 
 export const HeadLine = styled.div`
    display: flex;
-
-   span {
-      color: #1F5FA3;
-   }
+   align-items: center;
 `
 
 /*lado direito */

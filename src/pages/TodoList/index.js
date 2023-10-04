@@ -1,26 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Image from './img/image.png';
+import Image from '../../img/image.png';
 import axios from 'axios';
 
-import TituloTarefas from './Components/TituloTarefas/index'
-import Tarefa from './Components/Tarefa/index'
+import Titulo from '../../Components/Titulo/index'
+import Tarefa from '../../Components/Tarefa/index'
 
 import { 
   MainContainer, 
   Container, 
   LeftContainer,
   HeadLine,  
-  Titulo,
   SubHeadLine,
   LogoImage,
   RightContainer,
   Subtitulo,
-  //Tarefa,
   Input
   } 
   from './styles.js'
 
-function App() {
+function TodoList() {
   const[tasks, setTasks] = useState([]);
 
   const taskText = useRef("");
@@ -40,11 +38,6 @@ function App() {
       taskText.current.value = ""
     }
   }
-   /*
-  async function removeTask(id){
-    const data = await axios.delete(`https://plataforma.universodev.com.br/api/todolist/${id}`)
-    setTasks(tasks.filter((task) => task.id !== id))
-  }*/
 
   return (
     <MainContainer>
@@ -57,7 +50,7 @@ function App() {
           <SubHeadLine>Adicione ao lado as tarefas que deseja fazer hoje e não pare até ela estar vazia!</SubHeadLine>
         </LeftContainer>
         <RightContainer>
-          <TituloTarefas />
+          <Titulo>Minhas Tarefas</Titulo>
           <Subtitulo>Tarefas do dia...</Subtitulo>
 
           {tasks.map((task)=> (
@@ -75,4 +68,4 @@ function App() {
   );
 }
 
-export default App;
+export default TodoList;
