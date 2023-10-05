@@ -9,9 +9,10 @@ import { MainContainer,
          Image
         } from './styles'
 
-export default function component(){
+export default function Component(){
   const navigate = useNavigate()
-  function AcessRoute(){
+
+  function myFunction(){
     alert('acessando o todolist')
     navigate('/todolist/')
   }
@@ -21,7 +22,7 @@ export default function component(){
           <Container>
             <LeftContainer>
                <Titulo>Organize sua vida com <span>simplicidade e eficiência</span></Titulo>
-                <Botao onClick={AcessRoute}>Iniciar</Botao>
+                <Botao onClick={myFunction}>Iniciar</Botao>
             </LeftContainer>
             <Image src={HomeImg} alt="imagem Home"/>
           </Container>
