@@ -13,7 +13,6 @@ export default function Component(){
   const navigate = useNavigate()
 
   function myFunction(){
-    alert('acessando o todolist')
     navigate('/todolist/')
   }
 
