@@ -36,5 +36,5 @@ export const Botao = styled.div`
 `
 
 export const Image = styled.img`
-
+   
 `

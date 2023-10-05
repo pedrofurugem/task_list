@@ -14,7 +14,9 @@ export default function component(){
           <Container>
             <LeftContainer>
                <Titulo>Organize sua vida com <span>simplicidade e eficiência</span></Titulo>
-               <Botao>Iniciar</Botao>
+                <a href="/todolist/">
+                 <Botao>Iniciar</Botao>
+                </a>
             </LeftContainer>
             <Image src={HomeImg} alt="imagem Home"/>
           </Container>

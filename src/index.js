@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import TodoList from './pages/TodoList';
-import Home from './pages/Home/index'
+
 import { GlobalStyle } from './GlobalStyles';
-//<TodoList />
+import Routes from './routes'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Routes/>
     <GlobalStyle />
-    <Home />
   </React.StrictMode>
 );
 
